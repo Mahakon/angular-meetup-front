@@ -1,0 +1,14 @@
+<app-chat-toolbar [login]="user.login">
+</app-chat-toolbar>
+<div class="working-area">
+  <div class="chat-container">
+    <div class="message-container">
+      <app-message *ngFor="let message of messageList"
+                   [message]="message"
+                   [user]="user">
+      </app-message>
+    </div>
+    <app-message-input (addNewMessage)="addNewMessage($event)">
+    </app-message-input>
+  </div>
+</div>

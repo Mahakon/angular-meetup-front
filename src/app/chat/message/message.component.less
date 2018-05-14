@@ -1,0 +1,51 @@
+:host {
+  margin: 5px;
+  .message {
+    display: flex;
+    justify-content: flex-end;
+    .icon-view {
+      position: relative;
+      .icon {
+        margin: 2px 10px 2px 2px;
+      }
+      .icon + span {
+        display: none;
+        background: black;
+        opacity: 0.6;
+        color: white;
+        right: 62%;
+        top: 60%;
+        position: absolute;
+      }
+
+      .icon:hover + span,
+      .icon:focus + span {
+        cursor: pointer;
+        display: inline-block;
+
+      }
+    }
+
+    .text {
+      display: inline;
+      max-width: 600px;
+      min-width: 100px;
+      word-wrap: break-word;
+      border-radius: 4px;
+      border-bottom-right-radius: 0;
+      background: #FFD4AE;
+      padding: 4px;
+      min-height: 24px;
+    }
+  }
+
+  .anouther-user {
+    justify-content: flex-start;
+    .icon-view {
+      order: 1;
+    }
+    .text {
+      order: 2;
+    }
+  }
+}

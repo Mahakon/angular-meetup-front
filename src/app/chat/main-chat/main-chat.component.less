@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .working-area {
+    flex: 1 1 100%;
+    overflow-y: auto;
+    display: flex;
+    .chat-container {
+      max-width: 800px;
+      min-width: 200px;
+      margin: 0 auto 0 auto;
+      background: white;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px;
+      min-height: 0;
+
+      .message-container {
+        padding: 20px 40px 20px 40px;
+        min-height: 0px;
+        overflow-y: auto;
+      }
+    }
+  }
+}
