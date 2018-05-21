@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OauthComponent } from './oauth/oauth.component';
 import { MainChatComponent } from './chat/main-chat/main-chat.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ChatGuard } from './chat/chat.guard';
+import { ChatResolver } from './chat/chat.resolver';
 
 const routes: Routes = [
   {
-    path: 'oauth',
-    component: OauthComponent,
+    path: 'auth',
+    component: AuthComponent,
+    canActivate: [ AuthGuard ]
   },
   {
     path: 'chat',
-    component: MainChatComponent
+    component: MainChatComponent,
+    canActivate: [ ChatGuard ],
+    resolve: { messageList: ChatResolver }
   },
-  { path: '', redirectTo: 'chat', pathMatch: 'full' }
+  { path: '', redirectTo: 'auth', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -33,9 +33,10 @@
       word-wrap: break-word;
       border-radius: 4px;
       border-bottom-right-radius: 0;
-      background: #FFD4AE;
+      background: none;
       padding: 4px;
       min-height: 24px;
+      font-size: 20px;
     }
   }
 
@@ -43,9 +44,15 @@
     justify-content: flex-start;
     .icon-view {
       order: 1;
+
+      .icon + span {
+        right: auto;
+        left: 62%;
+      }
     }
     .text {
       order: 2;
+      right: -62%;
     }
   }
 }

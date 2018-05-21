@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OauthComponent } from './oauth/oauth.component';
 import { MainChatComponent } from './chat/main-chat/main-chat.component';
 import {
   MatIconModule,
@@ -19,16 +18,22 @@ import { MessageInputComponent } from './chat/message-input/message-input.compon
 import { UserService } from './services/user.service';
 import { MessageComponent } from './chat/message/message.component';
 import { WebSocetService } from './services/websocet.service';
-import {ChatService} from './services/chat.service';
+import { ChatService } from './services/chat.service';
+import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ChatGuard } from './chat/chat.guard';
+import { ChatResolver } from './chat/chat.resolver';
+import { AnimatedBotComponent } from './animated-bot/animated-bot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OauthComponent,
     MainChatComponent,
     ChatToolbarComponent,
     MessageInputComponent,
-    MessageComponent
+    MessageComponent,
+    AuthComponent,
+    AnimatedBotComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,10 @@ import {ChatService} from './services/chat.service';
   providers: [
     UserService,
     WebSocetService,
-    ChatService
+    ChatService,
+    AuthGuard,
+    ChatGuard,
+    ChatResolver
   ],
   bootstrap: [AppComponent]
 })

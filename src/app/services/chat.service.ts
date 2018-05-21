@@ -52,16 +52,6 @@ export class ChatService {
           this.eventEmitter.emit(ChatEvents.ADD,
             res['data']);
         }
-        if (res[ChatEvents.DELETE] !== undefined) {
-          console.log('emit' + ChatEvents.DELETE);
-          this.eventEmitter.emit(ChatEvents.DELETE,
-            res[ChatEvents.DELETE]);
-        }
-        if (res[ChatEvents.LIKE] !== undefined) {
-          console.log('emit' + ChatEvents.LIKE);
-          this.eventEmitter.emit(ChatEvents.LIKE,
-            res[ChatEvents.LIKE]);
-        }
       },
       err => {
         console.log(err);

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OauthComponent } from './oauth.component';
+import { AnimatedBotComponent } from './animated-bot.component';
 
-describe('OauthComponent', () => {
-  let component: OauthComponent;
-  let fixture: ComponentFixture<OauthComponent>;
+describe('AnimatedBotComponent', () => {
+  let component: AnimatedBotComponent;
+  let fixture: ComponentFixture<AnimatedBotComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OauthComponent ]
+      declarations: [ AnimatedBotComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OauthComponent);
+    fixture = TestBed.createComponent(AnimatedBotComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

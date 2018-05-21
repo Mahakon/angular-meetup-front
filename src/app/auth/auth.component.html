@@ -1,0 +1,21 @@
+<div class="form-container">
+  <form class="login-form"
+        [formGroup]="authForm">
+    <mat-form-field class="login">
+      <input matInput
+             placeholder="login"
+             formControlName="login"
+             required="required">
+      <mat-error *ngIf="authForm.invalid">
+        {{getErrorMessage()}}
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <button mat-button
+          color="primary"
+          class="chat-button"
+          [disabled]="authForm.invalid || authForm.pending"
+          (click)="addUser()">
+    Go Chating
+  </button>
+</div>

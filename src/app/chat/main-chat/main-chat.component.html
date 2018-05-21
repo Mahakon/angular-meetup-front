@@ -2,7 +2,7 @@
 </app-chat-toolbar>
 <div class="working-area">
   <div class="chat-container">
-    <div class="message-container">
+    <div class="message-container" #scrollMe [scrollTop]="scrollMe.scrollHeight">
       <app-message *ngFor="let message of messageList"
                    [message]="message"
                    [user]="user">

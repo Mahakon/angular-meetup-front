@@ -1,6 +1,6 @@
 <div class="message"
      [class.anouther-user]="message.userId!==user.id">
-  <div class="text">{{message.content}}</div>
+  <div class="text" [ngStyle]="getRandomColor()">{{message.content}}</div>
   <div class="icon-view">
     <mat-icon class="icon">person</mat-icon>
     <span>{{message.login}}</span>
