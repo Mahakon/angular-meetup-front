@@ -56,7 +56,7 @@ export class UserService {
   }
 
   turnOnloadingAnimation(elementId) {
-    document.getElementById(elementId).style.display = 'block';
+    document.getElementById(elementId).style.display = 'flex';
   }
 
   turnOffLoadingAnimation(elementId) {

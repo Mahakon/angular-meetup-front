@@ -1,4 +1,5 @@
-<div class="form-container">
+<div class="form-container"
+     [class.hidden-form]="isAuth">
   <form class="login-form"
         [formGroup]="authForm">
     <mat-form-field class="login">

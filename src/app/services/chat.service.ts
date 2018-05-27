@@ -6,7 +6,8 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { WebSocetService } from './websocet.service';
 import { wsHost } from '../config';
 import { Observable } from 'rxjs/Observable';
-import {UserService} from './user.service';
+import { UserService } from './user.service';
+import 'rxjs/add/operator/filter';
 
 export enum ChatEvents {
   ADD = 'ADD',
@@ -24,7 +25,6 @@ export interface Message {
 @Injectable()
 export class ChatService {
   private websocket: Subject<any>;
-  private eventEmitter = new EventEmitter();
   public messageList: Message[];
 
   constructor(
@@ -32,7 +32,6 @@ export class ChatService {
     private userService: UserService
   ) {
     this.openConnection();
-    this.createEvents();
     this.messageList = [];
   }
 
@@ -44,29 +43,10 @@ export class ChatService {
       });
   }
 
-  createEvents() {
-    this.websocket.subscribe(
-      res => {
-        if (res['event'] === ChatEvents.ADD) {
-          console.log('emit' + ChatEvents.ADD);
-          this.eventEmitter.emit(ChatEvents.ADD,
-            res['data']);
-        }
-      },
-      err => {
-        console.log(err);
-      },
-      () => {
-        if (this.websocketService.opening) {
-          this.openConnection();
-          this.createEvents();
-        }
-      }
-    );
-  }
-
   getSubscriptionToEvent(event: ChatEvents): Observable<any> {
-    return fromEvent(this.eventEmitter, event);
+    return this.websocket
+      .filter(res => res['event'] === event)
+      .map(res => res['data']);
   }
 
   sendEvent(event: ChatEvents, data: object) {

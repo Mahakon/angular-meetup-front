@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent implements OnInit {
   authForm: FormGroup;
+  isAuth = false;
 
   constructor(
     private router: Router,
@@ -58,6 +59,9 @@ export class AuthComponent implements OnInit {
           console.log(err);
         }
       );
+
+    this.isAuth = true;
+    this.userService.turnOnloadingAnimation('main-loading');
   }
 
   getErrorMessage() {
