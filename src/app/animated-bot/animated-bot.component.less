@@ -1,0 +1,419 @@
+@size-parametre: 1.8;
+@border-bot-color: #0F1012;
+@background-bot-color: white;
+@head-bot-color: #48BEFE;
+@shadow-bot-color: #2C97F7;
+@angry-head-bot-color:#FFDB01;
+@angry-shadow-bot-color: #FF8603;
+
+.animated-bot {
+  width: 100px * @size-parametre;
+  height: 100px * @size-parametre;
+  padding: 6px * @size-parametre;
+  position: relative;
+  z-index: 0;
+  background: @background-bot-color;
+  border-radius: 80px * @size-parametre;
+
+  .bot-head {
+    position: absolute;
+    left: 22%;
+    bottom: 20%;
+    background: none;
+    height: 54px * @size-parametre;
+    width: 52px * @size-parametre;
+
+    border-top-left-radius: 34px * @size-parametre;
+    border-top-right-radius: 34px * @size-parametre;
+    border-bottom-left-radius: 10px * @size-parametre;
+    border-bottom-right-radius: 10px * @size-parametre;
+    border: 6px * @size-parametre solid  @border-bot-color;
+
+    .bot-eye {
+      position: absolute;
+      background: @background-bot-color;
+      border-radius: 40px * @size-parametre;
+      border: 6px * @size-parametre solid @border-bot-color;
+      height: 20px * @size-parametre;
+      width: 20px * @size-parametre;
+      left: 20%;
+      bottom: 16%;
+    }
+
+    .bot-eye::after {
+      transform-origin: right bottom;
+      content: '';
+      position: absolute;
+      background: @border-bot-color;
+      height: 10px * @size-parametre;
+      width: 10px * @size-parametre;
+      border-radius: 40px * @size-parametre;
+      left: 24%;
+      bottom: 24%;
+    }
+
+    .bot-mouth {
+      position: absolute;
+      background: @border-bot-color;
+      height: 6px * @size-parametre;
+      width: 6px * @size-parametre;
+      border-radius: 40px * @size-parametre;
+      left: 70%;
+      bottom: 6%;
+    }
+
+    .bot-right-ear {
+      position: absolute;
+      background: @background-bot-color;
+      width: 4px * @size-parametre;
+      height: 16px * @size-parametre;
+      border-top-right-radius: 8px * @size-parametre;
+      border-bottom-right-radius: 8px * @size-parametre;
+      border: 6px * @size-parametre solid @border-bot-color;
+      left: 100%;
+      bottom: 10%;
+
+      .antenna-right {
+        transform-origin: left bottom;
+        position: absolute;
+        width: 6px * @size-parametre;
+        height: 16px * @size-parametre;
+        background: @border-bot-color;
+        transform: rotate(45deg);
+        border-radius: 6px * @size-parametre;
+        right: -106%;
+        bottom: 122%;
+      }
+    }
+
+    .bot-left-ear {
+      position: absolute;
+      background: @background-bot-color;
+      width: 4px * @size-parametre;
+      height: 16px * @size-parametre;
+      border-top-left-radius: 8px * @size-parametre;
+      border-bottom-left-radius: 8px * @size-parametre;
+      border: 6px * @size-parametre solid @border-bot-color;
+      right: 100%;
+      bottom: 10%;
+
+      .antenna-left {
+        transform-origin: right bottom;
+        position: absolute;
+        width: 6px * @size-parametre;
+        height: 16px * @size-parametre;
+        background: @border-bot-color;
+        transform: rotate(-45deg);
+        border-radius: 6px * @size-parametre;
+        left: -106%;
+        bottom: 122%;
+      }
+    }
+  }
+
+  .bot-head::before {
+    content: '';
+
+    left: 10%;
+    top: -6%;
+
+    position: absolute;
+    background: @head-bot-color;
+    height: 60px * @size-parametre;
+    width: 58px * @size-parametre;
+
+    border-top-left-radius: 40px * @size-parametre;
+    border-top-right-radius: 42px * @size-parametre;
+    border-bottom-left-radius: 10px * @size-parametre;
+    border-bottom-right-radius: 12px * @size-parametre;
+    z-index: -1;
+  }
+
+  .bot-head::after {
+    content: '';
+    position: absolute;
+    background: @head-bot-color;
+    height: 54px * @size-parametre;
+    width: 40px * @size-parametre;
+    right: 14%;
+    box-shadow: 10px * @size-parametre 0 4px * @size-parametre @shadow-bot-color;
+
+    border-top-left-radius: 40px * @size-parametre;
+    border-top-right-radius: 40px * @size-parametre;
+    z-index: -1;
+  }
+}
+
+.__close-eye {
+  .bot-head {
+    .bot-eye {
+      animation-name: eye-close;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    .bot-eye::after {
+      animation-name: disapear-pupil;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    .bot-mouth {
+      animation-name: mouth-moving;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.__open-eye {
+  .bot-head {
+    .bot-eye {
+      animation-name: eye-close;
+      animation-duration: 2s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    .bot-eye::after {
+      animation-name: disapear-pupil;
+      animation-duration: 2s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+
+    .bot-mouth {
+      animation-name: mouth-moving;
+      animation-duration: 2s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.__moving-pupil {
+  .bot-head {
+    .bot-eye::after {
+      animation-name: eye-pupil-move;
+      animation-duration: 1.5s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+.__become-angry {
+  .bot-head {
+    .bot-mouth {
+      animation-name: mouth-angry;
+      animation-duration: 2s;
+      animation-direction: alternate;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .bot-head::before {
+    animation-name: change-background-color;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  .bot-head::after {
+    animation-name: change-shadow-color;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+.__become-normal {
+  .bot-head {
+    .bot-mouth {
+      animation-name: mouth-angry;
+      animation-duration: 2s;
+      animation-direction: alternate-reverse;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .bot-head::before {
+    animation-name: change-background-color;
+    animation-duration: 2s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  .bot-head::after {
+    animation-name: change-shadow-color;
+    animation-duration: 2s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+.__moving-antenns {
+  .bot-head {
+    .bot-left-ear {
+      .antenna-left {
+        animation-name: left-antenna-move;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .bot-right-ear {
+      .antenna-right {
+        animation-name: right-antenna-move;
+        animation-duration: 1s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+}
+
+@keyframes eye-pupil-move {
+  from {
+    left: 24%;
+    bottom: 24%;
+  }
+  to {
+    left: 50%;
+    bottom: 40%;
+  }
+}
+
+@keyframes eye-close {
+  from {
+    height: 20px * @size-parametre;
+    bottom: 24%;
+  }
+  to {
+    height: 0;
+    bottom: 40%;
+  }
+}
+
+@keyframes disapear-pupil {
+  from {
+    height: 10px * @size-parametre;
+  }
+
+  to {
+    height: 6px * @size-parametre;
+  }
+}
+
+@keyframes mouth-moving {
+  from {
+    height: 6px * @size-parametre;
+    left: 70%;
+  }
+
+  to {
+    height: 12px * @size-parametre;
+    left: 46%;
+  }
+}
+
+@keyframes change-background-color {
+  from {
+    background: @head-bot-color;
+  }
+
+  to {
+    background: @angry-head-bot-color;
+  }
+}
+
+@keyframes change-shadow-color {
+  from {
+    background: @head-bot-color;
+    box-shadow: 10px * @size-parametre 0 4px * @size-parametre @shadow-bot-color;
+  }
+
+  to {
+    background: @angry-head-bot-color;
+    box-shadow: 10px * @size-parametre 0 4px * @size-parametre @angry-shadow-bot-color;
+  }
+}
+
+@keyframes mouth-angry {
+  from {
+    width: 6px * @size-parametre;
+    left: 70%;
+  }
+
+  to {
+    width: 24px * @size-parametre;
+    left: 28%;
+  }
+}
+
+@keyframes left-antenna-move {
+  from {
+    transform: rotate(-40deg);
+  }
+
+  to {
+    transform: rotate(-60deg);
+  }
+}
+
+@keyframes right-antenna-move {
+  from {
+    transform: rotate(40deg);
+  }
+
+  to {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes rotate-pupil {
+  from {
+    transform: rotate(0deg);
+    left: 0%;
+    bottom: 40%;
+  }
+
+  to {
+    transform: rotate(360deg);
+    left: 0%;
+    bottom: 40%;
+  }
+}
+
+.__loading {
+  .bot-head {
+    .bot-eye::after {
+      animation-name: rotate-pupil;
+      animation-duration: 1.5s;
+      animation-direction: normal;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+:host {
+  margin: 120px auto;
+  display: flex;
+  justify-content: center;
+}

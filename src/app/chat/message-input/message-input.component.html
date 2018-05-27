@@ -1,0 +1,20 @@
+<div class="input-container">
+  <a mat-icon-button
+     class="__bottom-location"
+     href="https://github.com/Mahakon/"
+     target="_blank">
+    <mat-icon>favorite</mat-icon>
+  </a>
+  <div class="message"
+       contentEditable="true"
+       [textContent]="content"
+       (input)="handleInputMessage($event)"
+       (keyup.enter)="handleNewMessage()">
+    {{content}}
+  </div>
+  <button (click)="handleNewMessage()"
+          mat-icon-button
+          class="__bottom-location">
+    <mat-icon>send</mat-icon>
+  </button>
+</div>

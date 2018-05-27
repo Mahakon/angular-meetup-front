@@ -1,0 +1,22 @@
+@import "reset.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Slabo 27px', serif;
+  background-color: #FEEDF4;
+  background-image: linear-gradient(
+    to top left,
+    #FEEDF4,
+    #FDF2EE,
+    #FDF7E9);
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-attachment: fixed;
+}
